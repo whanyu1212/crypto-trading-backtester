@@ -16,6 +16,18 @@ class FetchCryptoPricingData:
         self.base_url_crypto_price = os.getenv("BASE_URL_CRYPTO_PRICE")
 
     def fetch_all_cryptos(self) -> List[str]:
+        """Fetch a complete list of cryptocurrencies
+        that are available on financialmodellingprep.com
+        to compare against the user input. If the user
+        input is not in the list, then raise an error.
+
+        Raises:
+            ValueError: _description_
+            SystemError: _description_
+
+        Returns:
+            List[str]: _description_
+        """
         try:
             url = f"{self.base_url_crypto_list}apikey={self.api_key}"
             response = requests.get(url)
@@ -38,6 +50,20 @@ class FetchCryptoPricingData:
             )
 
     def fetch_crypto_pricing(self, crypto_symbol: str) -> pd.DataFrame:
+        """Fetch historical pricing data for a given cryptocurrency symbol.
+
+        Args:
+            crypto_symbol (str): The symbol of the cryptocurrency for which
+            to fetch pricing data. e.g, BTCUSD, ETHUSD, etc.
+
+        Raises:
+            ValueError: not a valid cryptocurrency symbol.
+            ValueError: failed to fetch cryptocurrency pricing data.
+            SystemError: request error occurred while fetching cryptocurrency pricing data.
+
+        Returns:
+            pd.DataFrame: A pandas DataFrame containing the historical pricing data.
+        """
         valid_crypto_list = self.fetch_all_cryptos()
         if crypto_symbol not in valid_crypto_list:
             raise ValueError(f"{crypto_symbol} is not a valid cryptocurrency symbol.")
