@@ -88,6 +88,13 @@ class FetchCryptoPricingData:
                 f"for {crypto_symbol}: {e}"
             )
 
+    @classmethod
+    def get_pricing_data(cls, symbol: str):
+        instance = (
+            cls()
+        )  # Assuming the class does not require a symbol for initialization
+        return instance.fetch_crypto_pricing(symbol)
+
 
 # sample usage
 
