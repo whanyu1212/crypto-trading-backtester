@@ -76,7 +76,11 @@ class FetchCryptoPricingData:
                     f"Request for {crypto_symbol} pricing data was successful"
                 )
                 data = response.json()
-                return pd.DataFrame(data["historical"])
+                return (
+                    pd.DataFrame(data["historical"])
+                    .sort_values("date")
+                    .reset_index(drop=True)
+                )
             else:
                 raise ValueError(
                     "Failed to fetch cryptocurrency pricing data for "
