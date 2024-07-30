@@ -17,6 +17,11 @@ loguru = "^0.7.2"
 pytest-mock = "^3.14.0"
 pytest = "^8.2.2"
 requests-mock = "^1.12.1"
+colorama = "^0.4.6"
+streamlit = "^1.36.0"
+streamlit-lightweight-charts = "^0.7.20"
+yfinance = "^0.2.40"
+pandas-ta = "^0.3.14b0"
 
 [tool.poetry.dev-dependencies]
 

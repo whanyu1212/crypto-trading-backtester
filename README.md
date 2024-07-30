@@ -4,9 +4,11 @@ backtesting different trading strategies on different cryptocurrencies
 
 ## Installation
 
-```bash
+Work in Progress, hasn't been built and published yet.
+
+<!-- ```bash
 $ pip install crypto_trading_backtester
-```
+``` -->
 
 ## Usage
 
