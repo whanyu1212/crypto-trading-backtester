@@ -1,1 +1,1 @@
-from .fetch_crypto_pricing_data import FetchCryptoPricingData
+from .data_loader import load_crypto_data
